@@ -6,7 +6,43 @@ sources:
     tables:
       - name: product
         identifier: raw_gz_product
+        description: product ids and their purchase price, one row per product
+        columns:
+          - name: products_id
+            description: product ids as integer
+            tests:
+              - unique
+              - not_null
+          - name: purchase_price
+            description: purchase price of each product as float
+
       - name: sales
         identifier: raw_gz_sales
+        description: all the sales of Greenweez, one row per per product id in each order
+        columns:
+          - name: date_date
+            description: date of the sale as date
+          - name: orders_id
+            description: orders ids as integer
+          - name: products_id
+            description: products ids as integer
+          - name: revenue
+            description: turnover of each order as float
+          - name: quantity
+            description: quantity of each product ordered as integer
+
       - name: ship
         identifier: raw_ship
+        description: one row per order with the corresponding shipping fee paid by the customers, + log and ship costs Greenweez pays
+        columns:
+          - name: orders_id
+            description: orders id as integer
+            tests:
+              - unique
+              - not_null
+          - name: shipping_fee
+            description: amount of the shipping fee per order as float
+          - name: log_cost
+            description: logistics cost per order as float
+          - name: ship_cost
+            description: ship cost per order as float
