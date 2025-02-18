@@ -19,12 +19,15 @@ sources:
       - name: sales
         identifier: raw_gz_sales
         description: all the sales of Greenweez, one row per per product id in each order
+        tests:
+          - unique:
+              column_name: 'concat(pdt_id, orders_id)'
         columns:
           - name: date_date
             description: date of the sale as date
           - name: orders_id
             description: orders ids as integer
-          - name: products_id
+          - name: pdt_id
             description: products ids as integer
           - name: revenue
             description: turnover of each order as float
