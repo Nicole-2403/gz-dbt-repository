@@ -2,6 +2,7 @@ select
     date_date,
     orders_id,
     product.products_id,
+    sum(quantity) as quantity,
     round(sum(revenue),2) as revenue,
     round(sum(purchase_price),2) as purchase_price,
     round(sum(revenue - purchase_price),2) as margin

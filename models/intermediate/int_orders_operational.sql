@@ -4,6 +4,7 @@ orders.date_date
 , orders.revenue
 , orders.purchase_price
 , orders.margin
+, orders.quantity
 , round(orders.margin+ship.shipping_fee-ship.log_cost-ship.ship_cost,2) as operational_margin
 , ship.shipping_fee
 , ship.ship_cost
