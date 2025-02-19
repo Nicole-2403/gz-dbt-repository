@@ -3,7 +3,7 @@ select
     orders_id,
     round(sum(revenue),2) as revenue,
     round(sum(purchase_price),2) as purchase_price,
-    round(sum(margin),2)as margin_per_order
+    round(sum(margin),2)as margin
 from {{ ref("int_sales_margin") }}
 group by 
     date_date,     
